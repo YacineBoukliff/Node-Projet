@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= article.name %></title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <nav class="nav">
+      <ul>
+        <li><a href="/articles">Articles</a></li>
+        <li><a href="/create-article">Créer un Article</a></li>
+        <li><a href="/logout">Déconnexion</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <h1><%= article.name %></h1>
+      <img
+        src="<%= article.image %>"
+        alt="<%= article.name %>"
+        class="article-image"
+      />
+      <div class="article-details">
+        <p><strong>Code:</strong> <%= article.code %></p>
+        <p><strong>Description:</strong> <%= article.description %></p>
+        <p><strong>Prix:</strong> <%= article.price %> €</p>
+        <p><strong>Quantité:</strong> <%= article.quantity %></p>
+      </div>
+      <a href="/articles/<%= article._id %>/edit">Modifier</a>
+      <form
+        action="/articles/<%= article._id %>/delete"
+        method="POST"
+        style="display: inline"
+      >
+        <button type="submit">Supprimer</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Articles</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <nav class="nav">
+      <ul>
+        <li><a href="/articles">Articles</a></li>
+        <li><a href="/create-article">Créer un Article</a></li>
+        <li><a href="/logout">Déconnexion</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <h1>Articles</h1>
+      <ul class="article-list">
+        <% articles.forEach(article => { %>
+        <li class="article-item">
+          <h2>
+            <a href="/articles/<%= article._id %>"><%= article.name %></a>
+          </h2>
+          <p>Code: <%= article.code %></p>
+          <p>Prix: <%= article.price %> €</p>
+          <p>Quantité: <%= article.quantity %></p>
+        </li>
+        <% }); %>
+      </ul>
+    </div>
+  </body>
+</html>
